@@ -1,0 +1,12 @@
+/* About.css */
+.about-container .accordion-button::after {
+    background-image: none !important;
+    content: none !important;
+  }
+/* About.css */
+/* .accordion-button {
+    background-color: #212529 !important;
+    color: white !important;
+  }
+   */
+  
