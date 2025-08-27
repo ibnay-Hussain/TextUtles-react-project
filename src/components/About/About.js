@@ -31,7 +31,7 @@ export default function About({ mode, toggleMode }) {
     
   }, [mode]);
   return (
-    <div className='about-container container d-flex flex-column gap-3 py-4 border rounded-3' style={myStyle}>
+    <div className='about-container container d-flex flex-column gap-3 py-4 border rounded-3 my-5' style={myStyle}>
         <h1 className='p-0 m-0'>About Us</h1>
         <div className="accordion p-0 m-0" id="accordionExample">
             <div className="accordion-item">
