@@ -24,7 +24,7 @@ export default function TextForm({ heading = "Enter text to analyze", mode, colo
     const [btnText, setBtnText] = useState("Convert to Upper Case");
   return (
     <>
-        <div className='container'>
+        <div className='container my-5'>
             <div className="mb-3">
                 <div className={`container d-flex flex-column align-items-start gap-3 text-${color}`}>
                     <h2>{heading}</h2>
