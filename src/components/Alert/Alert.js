@@ -4,7 +4,7 @@ import PropTypes from 'prop-types'
 export default function Alert({alert}) {
   return (
     <>
-    {alert && <span class={`alert alert-${alert.type}`} role="alert">
+    {alert && <span className={`alert alert-${alert.type}`} role="alert">
         {alert.msg}
     </span>}
     </>

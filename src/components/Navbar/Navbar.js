@@ -22,7 +22,7 @@ export default function Navbar({ title = "TextUtles", aboutText = "About", mode,
     }
   }
   return (
-    <nav className={`ps-5 pe-5 navbar navbar-expand-lg navbar-${mode}  mb-3`} style={navColor}>
+    <nav className={`lg:ps-5 lg:pe-5 navbar navbar-expand-lg navbar-${mode}  mb-3`} style={navColor}>
       <div className="container-fluid">
         <a className="navbar-brand" href="/">{title}</a>
         <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
