@@ -35,7 +35,7 @@ export default function TextForm({ heading = "Enter text to analyze", mode, colo
         </div>
         <div className="container">
             <h2 className={`text-${color}`}>Your Text Summary</h2>
-            <p className={`text-${color}`}> words : <span className='fw-semibold'>{text.trim().split(/\s+/).filter(word => word.length > 0).length}</span>, characters : <span className='fw-semibold'>{text.length}</span></p>
+            <p className={`text-${color}`}> words : <span className='fw-semibold'>{text.split(' ').filter( (element)=>{return element.length!=0}).length}</span>, characters : <span className='fw-semibold'>{text.length}</span></p>
             <p>
                 <span className={`mx-2 fw-semibold text-${color}`}>
                     { 
