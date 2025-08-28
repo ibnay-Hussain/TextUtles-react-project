@@ -7,26 +7,18 @@ export default function About({ mode, toggleMode }) {
     color: '',
     backgroundColor: ''
   });
-  const [btnStyle, setBtnStyle] = useState({
-    backgroundColor: ''
-  });
   const [arrowColor, setArrowColor] = useState({
     color: ''
   });
-  const [darkModeBtnText, setDarkModeBtnText] = useState("Enable dark mode");
   
   useEffect(() => {
-    if(mode == "dark") {
+    if(mode === "dark") {
         setMyStyle({ color: 'white', backgroundColor: '#212529' });
         setArrowColor({ color: 'white' });    
-        setDarkModeBtnText("Disable dark mode");
-        setBtnStyle({ backgroundColor: '#212529' });
     }
     else{
         setMyStyle({ color: 'black', backgroundColor: 'white' });
-        setArrowColor({ color: 'black' });
-        setDarkModeBtnText("Enable dark mode");
-        setBtnStyle({ backgroundColor: '#0d6efd' });
+        setArrowColor({ color: 'black' });      
     }
     
   }, [mode]);

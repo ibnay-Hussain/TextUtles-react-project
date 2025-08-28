@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 
 export default function Navbar({ title = "TextUtles", aboutText = "About", mode, toggleMode }) {
@@ -47,13 +46,3 @@ export default function Navbar({ title = "TextUtles", aboutText = "About", mode,
   );
 }
 
-Navbar.propTypes = {
-  title: PropTypes.string.isRequired,
-  aboutText: PropTypes.string,
-};
-
-// Navbar.defaultProps = {
-//   title: "My App",
-//   aboutText: "About Us",
-//   mode: "dark"
-// };
