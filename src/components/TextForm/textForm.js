@@ -29,13 +29,13 @@ export default function TextForm({ heading = "Enter text to analyze", mode, colo
                 <div className={`container d-flex flex-column align-items-start gap-3 text-${color}`}>
                     <h2>{heading}</h2>
                     <textarea onChange={handleOnChange} value={text} placeholder='Enter Text Here' className="form-control border border-2" id="myBox" rows="8"></textarea>
-                    <div className="btn btn-primary" onClick={handleOnClick}>{btnText}</div>
+                    <button disabled={text.length==0} className="btn btn-primary" onClick={handleOnClick}>{btnText}</button>
                 </div>
             </div>
         </div>
         <div className="container">
             <h2 className={`text-${color}`}>Your Text Summary</h2>
-            <p className={`text-${color}`}> words : <span className='fw-semibold'>{text.split(' ').filter( (element)=>{return element.length!=0}).length}</span>, characters : <span className='fw-semibold'>{text.length}</span></p>
+            <p className={`text-${color}`}> words : <span className='fw-semibold'>{text.split(' ').filter( (element)=>{return element.length!==0}).length}</span>, characters : <span className='fw-semibold'>{text.length}</span></p>
             <p>
                 <span className={`mx-2 fw-semibold text-${color}`}>
                     { 
