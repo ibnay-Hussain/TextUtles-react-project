@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 
 export default function Navbar({ title = "TextUtles", aboutText = "About", mode, toggleMode }) {
@@ -7,6 +6,18 @@ export default function Navbar({ title = "TextUtles", aboutText = "About", mode,
   const [navColor, setNavColor] = useState({
     backgroundColor: '',
   });
+  const pallets = [
+    ["#0d6efd", "primary"],
+    ["#6c757d", "secondary"],
+    ["#198754", "success"],
+    ["#dc3545", "danger"]
+  ];
+  const changeColor = (e) => {
+    const name = e.target.getAttribute('data-name');
+    const colorCode = pallets.find(pallet => pallet[1] === name)[0];
+    document.body.style.backgroundColor = colorCode;
+  }
+
   const handleToggleText = () => {
     if (mode === 'dark') {
       setToggleText("Enable Dark Mode");
@@ -37,23 +48,18 @@ export default function Navbar({ title = "TextUtles", aboutText = "About", mode,
               <Link className="nav-link" to="/about">{aboutText}</Link>
             </li>
           </ul>
-          <div className={`form-check form-switch text-${mode === 'dark' ? 'light' : 'dark'}`}>
+          <div className="d-flex border bg-white rounded me-5">
+            <div className="bg-primary rounded mx-2" style={{width:'30px', height:'30px'}} data-name="primary"  onClick={(e)=>changeColor(e)}></div>
+            <div className="bg-secondary rounded mx-2" style={{width:'30px', height:'30px'}} data-name="secondary"  onClick={(e)=>changeColor(e)}></div>
+            <div className="bg-success rounded mx-2" style={{width:'30px', height:'30px'}} data-name="success"  onClick={(e)=>changeColor(e)}></div>
+          </div>
+        </div>
+        <div className={`form-check form-switch text-${mode === 'dark' ? 'light' : 'dark'}`}>
             <input className="form-check-input" onClick={()=> {toggleMode(); handleToggleText();}} type="checkbox" role="switch" id="switchCheckDefault"/>
             <label className="form-check-label" htmlFor="switchCheckDefault">{toggleText}</label>
-          </div>
         </div>
       </div>
     </nav>
   );
 }
 
-Navbar.propTypes = {
-  title: PropTypes.string.isRequired,
-  aboutText: PropTypes.string,
-};
-
-// Navbar.defaultProps = {
-//   title: "My App",
-//   aboutText: "About Us",
-//   mode: "dark"
-// };
