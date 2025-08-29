@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import PropTypes from 'prop-types'
 
-export default function TextForm({ heading = "Enter text to analyze", mode, color}) {
+export default function TextForm({ heading = "Enter text to analyze", mode, color, showAlert}) {
     
     const handleOnClick = ()=> {  
         if (count) {
@@ -18,6 +18,14 @@ export default function TextForm({ heading = "Enter text to analyze", mode, colo
     const handleOnChange = (event)=> {
         setText(event.target.value);
     }
+    
+    const handleCopy = ()=> {
+        navigator.clipboard.writeText(text);
+    }
+
+    const buttonAlert = (msg, type)=> {
+        showAlert(msg, type);
+    }
 
     const [text, setText] = useState("");
     const [count, setCount] = useState(false);
@@ -29,13 +37,16 @@ export default function TextForm({ heading = "Enter text to analyze", mode, colo
                 <div className={`container d-flex flex-column align-items-start gap-3 text-${color}`}>
                     <h2>{heading}</h2>
                     <textarea onChange={handleOnChange} value={text} placeholder='Enter Text Here' className="form-control border border-2" id="myBox" rows="8"></textarea>
-                    <button disabled={text.length==0} className="btn btn-primary" onClick={handleOnClick}>{btnText}</button>
+                    <div className='d-flex gap-3'>
+                        <button disabled={text.length==0} className="btn btn-primary" onClick={()=>{handleOnClick();buttonAlert(btnText,"success") }}>{btnText}</button>
+                        <button disabled={text.length==0} className="btn btn-secondary" onClick={()=>{handleCopy();buttonAlert("copied to clipboard!","success") }}>Copy Text</button>
+                    </div>
                 </div>
             </div>
         </div>
         <div className="container">
             <h2 className={`text-${color}`}>Your Text Summary</h2>
-            <p className={`text-${color}`}> words : <span className='fw-semibold'>{text.split(' ').filter( (element)=>{return element.length!==0}).length}</span>, characters : <span className='fw-semibold'>{text.length}</span></p>
+            <p className={`text-${color}`}> words : <span className='fw-semibold'>{text.split(/\s+/).filter( (element)=>{return element.length!==0}).length}</span>, characters : <span className='fw-semibold'>{text.length}</span></p>
             <p>
                 <span className={`mx-2 fw-semibold text-${color}`}>
                     { 
