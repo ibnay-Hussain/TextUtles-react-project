@@ -45,7 +45,7 @@ function App() {
         <Alert alert={alert} showAlert={showAlert} />
         <Routes>
           <Route path="/about" element={<About mode={mode} toggleMode={toggleMode} />} />
-          <Route path="/" element={<TextForm mode={mode} color={color} />} />
+          <Route path="/" element={<TextForm mode={mode} color={color} showAlert={showAlert} />} />
         </Routes>
       </Router>
     </>
